@@ -31,11 +31,15 @@
   text-align: center;
   margin-left: 5rem;
   font-size: 3rem;
-  cursor: pointer;
+  color: white;
+}
+
+.shopcart-header a{
+  text-decoration: none;
 }
 
 #shopcart_icon{
-  cursor: pointer;
+  color: white;
 }
 
 #quantity{

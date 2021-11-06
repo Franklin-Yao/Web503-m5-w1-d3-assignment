@@ -1,4 +1,4 @@
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart,faRegistered } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Products from './displayProducts';
@@ -9,7 +9,8 @@ export default function Navbar(props){
         <Router>
             <div className="shopcart-header">
                 <Link to="/">
-                    <span id="title">Shop 2 React</span>
+                    {/* <span id="title">Shop 2 React</span> */}
+                    <span id="title" className="navbar-left mx-4 my-4">Shop 2 {< FontAwesomeIcon icon={faRegistered} />}eact</span>
                 </Link>
                 <span id='quantity'>
                 <Link to="/cart">
