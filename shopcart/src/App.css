@@ -17,10 +17,12 @@
   padding: 3vh;
   min-height: 100vh;
   min-width: 100vh;
+  border: solid grey 1px;
 }
 
 .shopcart-header{
   background-color: deepskyblue;
+  color: white;
 }
 
 #title{
@@ -29,6 +31,11 @@
   text-align: center;
   margin-left: 5rem;
   font-size: 3rem;
+  cursor: pointer;
+}
+
+#shopcart_icon{
+  cursor: pointer;
 }
 
 #quantity{
@@ -40,21 +47,37 @@
   font-size: 1rem;
 }
 
+ul{
+  border:solid grey 1px;
+  padding-left: 0px !important;
+}
 li{
   list-style-type:none;
   border-bottom: solid grey 1px;
+  padding-left: 40px;
+  padding: 20px;
 }
-
 li img{
   height: 80px;
   width: 80px;
-  margin: 10px;
+  padding: 5px;
+}
+li p{
+  margin: 0px;
 }
 
+.icon{
+  height: 25px;
+  width: 25px !important;
+  padding: 5px;
+  border: solid grey 1px;
+  vertical-align: middle;
+}
 li div span{
   border: solid grey 1px;
   padding: 4px 10px;
   margin: 10px;
+  vertical-align: middle;
 }
 @keyframes App-logo-spin {
   from {
@@ -63,4 +86,8 @@ li div span{
   to {
     transform: rotate(360deg);
   }
+}
+
+#cart h4{
+  padding-top: 20px;
 }

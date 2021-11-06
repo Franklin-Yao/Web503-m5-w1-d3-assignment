@@ -2,74 +2,46 @@ import logo from './logo.svg';
 import './App.css';
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { productData } from './product';
+import Navbar from './navbar';
 
 class App extends Component{
-constructor(props){
-  super(props);
-  this.state=[
-    {
-      id: 0,
-      image: './products/cologne.jpg',
-      desc: 'Unisex Cologne',
-      value: 0
-    },
-    {
-      id: 1,
-      image: './products/iwatch.jpg',
-      desc: 'Apple iWatch',
-      value: 0
-    },
-    {
-      id: 2,
-      image: './products/mug.jpg',
-      desc: 'Unique Mug',
-      value: 0
-    },
-    {
-      id: 3,
-      image: './products/wallet.jpg',
-      desc: 'Mens Wallet',
-      value: 0
+  constructor(props){
+    super(props);
+    this.state = {
+      productData:productData,
+      quantity: productData.map(item=>item.value).reduce((res, item)=>{
+        return res + item;
+      })
     }
-  ]
-}
+  }
+
+  addQuantity = (id)=>{
+    if (this.state.productData[id].value === 100)
+      return
+    this.state.productData[id].value += 1
+    this.setState({productData: this.state.productData})
+    this.setState({quantity: this.state.quantity+1})
+    console.log(this.state.quantity);
+  }
+
+  subtractQuantity = (id)=>{
+    if (this.state.productData[id].value === 0)
+      return
+    this.state.productData[id].value -= 1
+    this.setState({productData: this.state.productData})
+    this.setState({quantity: this.state.quantity-1})
+    console.log(this.state.quantity);
+  }
 
   render(){
-    let num_item = this.state.map(item=>item.value).reduce((res, item)=>{
-      return res + item;
-    })
-
     return (
-      <div class="app-body">
-        <div className="shopcart-header">
-          <span id="title">Shop to React</span>
-          <span id='quantity'>
-          <FontAwesomeIcon icon={faShoppingCart} />
-            <span> {num_item}</span> items
-          </span>
-        </div>
-        <Item products={this.state}/>
+      <div className="app-body">
+        <Navbar quantity={this.state.quantity} productData={this.state.productData} addQuantity={this.addQuantity} subtractQuantity={this.subtractQuantity}/>
       </div>
     );
   }
-}
-
-function Item(props) {
-  return (
-    <ul>
-      {props.products.map((product) => (
-        <li key={product.id} className="">
-          <p>{product.desc}</p>
-          <div>
-            <img src={product.image}></img>
-            <span>{product.value}</span>quantiy
-          </div>
-        </li>
-      ))}
-    </ul>
-  );
 }
 
 export default App;
