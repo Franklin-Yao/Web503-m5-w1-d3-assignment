@@ -25,6 +25,6 @@ export const productData = [
       image: './products/wallet.jpg',
       desc: 'Mens Wallet',
       ratings: 3.5,
-      value: 1
+      value: 0
     }
   ];
