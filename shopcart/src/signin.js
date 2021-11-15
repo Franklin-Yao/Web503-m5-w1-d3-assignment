@@ -3,7 +3,7 @@ import FacebookLogin from "react-facebook-login";
 import { Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 function Signin(props){
   const [login, setLogin] = useState(false);
@@ -69,10 +69,10 @@ function Checkout(fbpic, fbdata){
 
 function EmptyCart(props){
     return (
-        <React.Fragment className="mt-5">
+        <React.Fragment>
             <h3>Your Cart items</h3>
             <p>There are 0 items in your cart</p>
-            <a href='/' className='btn bg-success text-white'>Continue shopping</a>
+            <Link to='/' className='btn bg-success text-white'>Continue shopping</Link>
         </React.Fragment>
     )
 }

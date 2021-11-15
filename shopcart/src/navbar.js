@@ -2,7 +2,8 @@ import { faShoppingCart,faRegistered } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Products from './displayProducts';
-import Cart from "./cart";
+import CartList from "./cart";
+import Signin from "./signin";
 
 export default function Navbar(props){
     return(
@@ -26,8 +27,12 @@ export default function Navbar(props){
                     <Route exact path="/">
                         <Products product_data={props.productData} addQuantity={props.addQuantity} subtractQuantity={props.subtractQuantity}/>
                     </Route>
-                    <Route path="/cart">
-                        <Cart lists = {props.productData} totalValue={props.quantity}/>
+                    <Route exact path="/cart">
+                        <CartList lists = {props.productData}/>
+                        <Link to="/signin" className="btn bg-primary text-white">Check out</Link>
+                    </Route>
+                    <Route path="/signin">
+                        <Signin totalValue={props.quantity}/>
                     </Route>
                 </Switch>
             }

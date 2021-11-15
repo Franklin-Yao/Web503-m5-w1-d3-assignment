@@ -20,22 +20,4 @@ function CartList(props){
         </div>
     )
 }
-export default function Cart(props){
-    return (
-        <Router>
-            {
-                <Switch>
-                    <Route exact path="/cart">
-                        <CartList lists={props.lists}/>
-                        <Link to="/signin" className="btn bg-primary text-white">
-                            Check out
-                        </Link>
-                    </Route>
-                    <Route path="/signin">
-                        <Signin totalValue={props.totalValue}/>
-                    </Route>
-                </Switch>
-            }
-        </Router>
-    )
-}
+export default CartList;
