@@ -25,7 +25,7 @@ export default function Navbar(props){
             {
                 <Switch>
                     <Route exact path="/">
-                        <Products product_data={props.productData} addQuantity={props.addQuantity} subtractQuantity={props.subtractQuantity}/>
+                        <Products sort={props.sort} product_data={props.productData} addQuantity={props.addQuantity} subtractQuantity={props.subtractQuantity}/>
                     </Route>
                     <Route exact path="/cart">
                         <CartList lists = {props.productData}/>

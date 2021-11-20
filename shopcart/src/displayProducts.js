@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { Modal } from "react-bootstrap";
+import { Dropdown, Modal } from "react-bootstrap";
+import { useButtonProps } from "@restart/ui/esm/Button";
 
 export default function Products(props) {
     const [show, setShow] = useState(false);
@@ -13,11 +14,20 @@ export default function Products(props) {
         setShowImge(product);
     };
     return (
-        <ul>
+        <div>
+            <div id="sort-menu">
+            <label for="cars">Sort Price By:  </label>
+                <select name="cars" id="cars" onChange={props.sort}>
+                    <option value="normal">Normal</option>
+                    <option value="lowest">Lowest</option>
+                    <option value="highest">Highest</option>
+                </select>
+            </div>
+            <ul>
             {props.product_data.map((product) => (
             
             <li key={product.id} className="">
-                <p>{product.desc}</p>
+                <p>{product.desc} <span>${product.price}</span></p>
                 <div>
                     <img src={product.image} onClick={()=>handleShow(product)}></img>
                     <FontAwesomeIcon
@@ -48,5 +58,6 @@ export default function Products(props) {
                 </Modal.Body>
             </Modal>
         </ul>
+        </div>
     );
   }

@@ -50,6 +50,13 @@
   margin-right: 5rem;
   font-size: 1rem;
 }
+#sort-menu{
+  text-align: center;
+  margin: 20px;
+}
+#sort-menu label{
+  margin-right: 10px;
+}
 
 ul{
   border:solid grey 1px;
@@ -68,6 +75,9 @@ li img{
 }
 li p{
   margin: 0px;
+}
+li p span{
+  color: red;
 }
 
 .icon{
